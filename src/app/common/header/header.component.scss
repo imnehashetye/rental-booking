@@ -1,0 +1,31 @@
+@import "variables";
+.navbar {
+    padding: 20px;
+    margin-bottom: 40px;
+    .rb-search {
+        height: 50px;
+        width: 300px;
+    }
+    .navbar-brand {
+        margin-right: 30px;
+        font-size: 30px;
+        letter-spacing: 1px;
+        color: $main-color;
+        font-weight: 500;
+    }
+    .nav-item {
+        font-size: 14px;
+    }
+    .btn-rb-search {
+        border-color: $main-color;
+        color: $main-color;
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: $main-color;
+            color: $main-color;
+            background-color: transparent;
+            box-shadow: none;
+        }
+    }
+}
