@@ -1,0 +1,33 @@
+@import 'variables';
+.rental-list-item {
+    a {
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+    .bwm-card {
+        border: none;
+        .card-block {
+            padding-top: 8px;
+            .card-subtitle {
+                margin: 0;
+                font-weight: 500;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: #16861a;
+            }
+            .card-title {
+                margin: 3px 0;
+                font-size: 19px;
+                color: $main-text-color;
+            }
+            .card-text {
+                margin-bottom: 0;
+                font-weight: 300;
+                font-size: 14px;
+                color: #7e7e7e;
+            }
+        }
+    }
+}
