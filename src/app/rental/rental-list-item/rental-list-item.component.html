@@ -1,9 +1,9 @@
 <div class='rental-list-item'>
-    <a routerLink='/rentals/{{data.id}}'>
+    <a routerLink='/rentals/{{data._id}}'>
         <div class='card bwm-card'>
-            <img class='card-img-top' src='http://via.placeholder.com/350x250' alt=''>
+            <img class='card-img-top' src='{{data.image}}' alt=''>
             <div class='card-block'>
-                <h6 class='card-subtitle'>Whole {{data.category}} &#183; {{data.city}}</h6>
+                <h6 class='card-subtitle {{data.category}}'>{{data.shared ? 'Shared' : 'Whole'}} {{data.category}} &#183; {{data.city}}</h6>
                 <h5 class='card-title'>{{data.title}}</h5>
                 <p class='card-text'>{{data.daily}} per Day &#183; Free Cancellations</p>
             </div>
