@@ -1,6 +1,5 @@
 const Rental = require('../../models/rental');
 
-
 async function rental(req, res) {
     try {
         const data = await Rental.find({});
@@ -22,6 +21,17 @@ async function rental(req, res) {
     }
 }
 
+async function getrental(req, res) {
+    try {
+        const data = await Rental.findOne({ _id: req.params.id });
+        console.log('eedataeeeeeeeeeeee', data);
+        return res.json(data);
+    } catch (err) {
+        console.log('eeeeeeeeeeeeee', err);
+    }
+}
+
 module.exports = {
     rental,
+    getrental,
 };
