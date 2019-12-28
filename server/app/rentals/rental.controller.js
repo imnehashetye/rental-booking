@@ -1,4 +1,4 @@
-const Rental = require('../../models/rental');
+const { User, Rental } = require('../../config/sqlDB');
 
 async function rental(req, res) {
     try {
@@ -17,17 +17,17 @@ async function rental(req, res) {
         // console.log('datatttttttttttttttttt', data);
         return res.json(data);
     } catch (err) {
-        console.log('eeeeeeeeeeeeee', err);
+        return next(err);
     }
 }
 
 async function getrental(req, res) {
     try {
         const data = await Rental.findOne({ _id: req.params.id });
-        console.log('eedataeeeeeeeeeeee', data);
+
         return res.json(data);
     } catch (err) {
-        console.log('eeeeeeeeeeeeee', err);
+        return next(err);
     }
 }
 
