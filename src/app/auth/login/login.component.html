@@ -1,0 +1,38 @@
+<section id="login">
+    <div class="login">
+        <div class="row">
+            <div class="col-md-5">
+                <h1>Login</h1>
+                <form [formGroup]='loginForm' (ngSubmit)='login()'>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" formControlName="email" #email>
+                        <div *ngIf='isValidForm("email")' class="alert alert-danger">
+                            <div *ngIf='isRequired("email")'>Email is required.</div>
+                            <div *ngIf="loginForm.controls['email'].errors.pattern">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" formControlName="password" #password>
+                        <div *ngIf='isValidForm("password")' class="alert alert-danger">
+                            <div *ngIf='isRequired("password")'>Password is required.</div>
+                        </div>
+                    </div>
+                    <button type="submit" [disabled]='!loginForm.valid' class="btn btn-bwm">Submit</button>
+                    <div *ngIf='errors.length'>
+                        <div *ngFor='let err of errors' class='alert alert-danger mt-3'>
+                            {{err}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 ml-auto">
+                <div class="image-container">
+                    <h2 class="catchphrase">Hundreds of awesome places in reach of few clicks.</h2>
+                    <img src="assets/images/login-image.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
