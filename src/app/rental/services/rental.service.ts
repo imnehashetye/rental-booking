@@ -70,7 +70,7 @@ export class RentalService {
     //   }];
 
       public getrentalById(rentalId): Observable<any> {
-        return this.http.get('http://localhost:3001/api/v1/rentals/' + rentalId);
+        return this.http.get('/api/v1/rentals/' + rentalId);
         // return new Observable<Rental>((observer) => {
         //   const rentalData = this.rentals.find(x => (x.id === +rentalId));
         //   observer.next(rentalData);
@@ -79,7 +79,7 @@ export class RentalService {
 
       public getRentals(): Observable<any> {
         console.log('tttttttttttt')
-        return this.http.get('http://localhost:3001/api/v1/rentals');
+        return this.http.get('/api/v1/rentals');
           // return new Observable<Rental[]>((observer) => {
           //   setTimeout(() => {
           //     observer.next(this.rentals);

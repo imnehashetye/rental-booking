@@ -1,0 +1,57 @@
+<section id="register">
+    <div class="register">
+        <div class="row">
+            <div class="col-md-5">
+                <h1 class="page-title">Register</h1>
+                <form #registerForm='ngForm' novalidate>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" #username='ngModel' [(ngModel)]='formData.username' name='username' class="form-control" id="username" required>
+                        <div *ngIf='username.invalid && (username.dirty || username.touched)' class="alert alert-danger">
+                            <div *ngIf='username.errors.required'>Username is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" email #email='ngModel' ngModel pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" [(ngModel)]='formData.email' name='email' class="form-control" id="email" required>
+                        <div *ngIf='email.invalid && (email.dirty || email.touched)' class="alert alert-danger">
+                            <div *ngIf='email.errors.required'>Username is required.{{email.errors.email}}</div>
+                            <div *ngIf="email.invalid">Email must be a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" #password='ngModel' [(ngModel)]='formData.password' name='password' class="form-control" id="password" required>
+                        <div *ngIf='password.invalid && (password.dirty || password.touched)' class="alert alert-danger">
+                            <div *ngIf='password.errors.required'>Username is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passwordConfirmation">Confirm Password</label>
+                        <input type="password" appConfirmEqualValidator='password' #passwordConfirmation='ngModel' [(ngModel)]='formData.passwordConfirmation' name='passwordConfirmation' class="form-control" id="passwordConfirmation" required>
+                        <div *ngIf='passwordConfirmation.invalid && (passwordConfirmation.dirty || passwordConfirmation.touched)' class="alert alert-danger">
+                            <div *ngIf='passwordConfirmation.errors.required'>PasswordConfirmation is required.</div>
+                            <div *ngIf="passwordConfirmation.errors.notEqual && !passwordConfirmation.errors.required">Password Mismatch</div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)='register()' class="btn btn-bwm" [disabled]='!registerForm.form.valid'>Submit
+                    </button>
+                    <div *ngIf='errors.length'>
+                        <div *ngFor='let err of errors' class='alert alert-danger mt-3'>
+                            {{err}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 ml-auto">
+                <div class="image-container">
+                    <h2 class="catchphrase">As our member you have access to most awesome places in the world.</h2>
+                    <img src="assets/images/register-image.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
