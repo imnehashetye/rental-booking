@@ -1,3 +1,5 @@
+import { Booking } from './booking.model';
+
 export class Rental {
     _id: number;
     title: string;
@@ -9,5 +11,6 @@ export class Rental {
     description: string;
     daily: number;
     shared: boolean;
-    createdAt: string;   
+    createdAt: string;
+    bookings: Booking[];  
 }

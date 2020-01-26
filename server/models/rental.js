@@ -33,13 +33,32 @@ const rentalSchema = new Schema({
     },
     daily: Number,
     shared: Boolean,
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    },
-    user: {
+    created_by: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+    },
+    updated_by: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        default: null,
+    },
+    user_rental_booking_id: [{
+        type: Schema.Types.ObjectId,
+        ref: 'UserRentalBookings',
+    }],
+    deleted_by: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        default: null,
+    },
+    deleted_on: {
+        type: Date,
+        default: null,
+    },
+}, {
+    timestamps: {
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
     },
 });
 

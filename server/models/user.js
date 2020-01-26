@@ -16,7 +16,6 @@ const userSchema = new Schema({
         lowercase: true,
         unique: true,
         match: [/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/],
-        // match: [/^w+[+.w-]*@([w-]+.)*w+[w-]*.([a-z]{2,4}|d+)$/i],
     },
     password: {
         type: String,
@@ -24,25 +23,23 @@ const userSchema = new Schema({
         min: [4, 'Too Short'],
         max: [32, 'Too Long'],
     },
-    createdBy: {
+    created_by: {
         type: Number,
+        default: null,
         // required: true,
     },
-    rentals: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Rental',
-    }],
-    deletedBy: {
+    deleted_by: {
         type: Number,
+        default: null,
     },
-    deletedAt: {
+    deleted_on: {
         type: Date,
-        default: Date.now,
+        default: null,
     },
 }, {
     timestamps: {
         createdAt: 'created_at',
-        updatedAt: 'updatedAt',
+        updatedAt: 'updated_at',
     },
 });
 
