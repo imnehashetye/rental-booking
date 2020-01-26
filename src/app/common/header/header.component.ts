@@ -11,13 +11,11 @@ export class HeaderComponent {
   authUser:any = {};
   constructor(private auth: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    this.authUser = this.auth.isAuthenticated(true);
-  }
+  ngOnInit() {}
 
   logout() {
     this.auth.logout();
-
+console.log('this.authUserttttttttttttttt',this.authUser)
     return this.router.navigate(['/login']);
   }
 }

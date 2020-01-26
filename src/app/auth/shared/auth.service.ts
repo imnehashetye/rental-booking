@@ -31,15 +31,11 @@ public : boolean = false;
   }
 
   public isAuthenticated(flag): any {
-   const isAuthenticatedUser = moment().isBefore(moment.unix(this.decodedToken.exp));
-   if (!flag) return isAuthenticatedUser;
+   return moment().isBefore(moment.unix(this.decodedToken.exp));
+  }
 
-   const obj = { isAuthenticatedUser };
-  
-   if (isAuthenticatedUser) {
-     Object.assign(obj, { username: this.decodedToken.username });
-   }
-   return obj;
+  public getUsername(): string {
+    return this.decodedToken.username
   }
 
   public getToken() {
