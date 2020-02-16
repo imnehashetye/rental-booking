@@ -11,7 +11,8 @@ async function authMiddleware(req, res, next) {
         }
 
         const data = await jwt.verify(token.split(' ')[1], config.SECRET);
-        console.log('data', data);
+        console.log('token.split', token.split(' '));
+        console.log('token.data', data);
         const user = await User.findById(data.userId);
 
         if (!user) {

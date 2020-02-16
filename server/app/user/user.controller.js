@@ -59,7 +59,6 @@ async function create(req, res, next) {
 
         return res.json();
     } catch (err) {
-        console.log('eeeeeeeeeeeeee', err);
         return next(err);
     }
 }

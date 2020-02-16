@@ -15,7 +15,7 @@ import { WindowRef } from '../../rental/services/windowRef';
   ],
   imports: [
     AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyBiDWYhsC4ziGkcAhj-U_0HYEQJqdmV1L0',
+        apiKey: 'KEY',
         libraries: ['places']
         })
   ],
